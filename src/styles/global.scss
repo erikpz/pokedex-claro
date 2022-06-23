@@ -1,6 +1,37 @@
+@import "breakpoints";
+
+* {
+  font-family: "Lato";
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.boxShadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .rootStyle {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 50px;
-  background-color: lightblue;
+}
+
+@media (max-width: $desktop) {
+  .rootStyle {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .rootStyle {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .rootStyle {
+    padding: 0 10px;
+  }
 }
