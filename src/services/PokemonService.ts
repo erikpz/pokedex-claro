@@ -11,21 +11,26 @@ export class PokemonService {
     return PokemonService.instance;
   }
 
-  async getAllPokemons(): Promise<APIResponse> {
+  async getAllPokemons(
+    offset: number = 0,
+    limit: number = 15
+  ): Promise<APIResponse> {
     return GenericService.get({
-      endpoint: "/",
+      endpoint: `/pokemon?offset=${
+        offset === 0 ? 0 : limit * offset
+      }&limit=${limit}`,
     });
   }
-  
+
   async getPokemonByName(name: string): Promise<APIResponse> {
     return GenericService.get({
-      endpoint: `/${name}`,
+      endpoint: `/pokemon/${name}`,
     });
   }
 
   async getPokemonById(id: number): Promise<APIResponse> {
     return GenericService.get({
-      endpoint: `/${id}`,
+      endpoint: `/pokemon/${id}`,
     });
   }
 }
