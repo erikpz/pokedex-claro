@@ -18,6 +18,14 @@ body {
   padding: 0 50px;
 }
 
+.cardsContainer{
+  min-height: 200px;
+  background-color: lightblue;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
 @media (max-width: $desktop) {
   .rootStyle {
     padding: 0 40px;
