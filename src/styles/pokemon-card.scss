@@ -10,9 +10,13 @@
   display: flex;
 }
 
+.cardContainer:hover {
+  cursor: pointer;
+}
+
 .imgContainer {
   position: absolute;
-  top: -70px;
+  top: -75px;
   height: 100px;
   & img {
     width: 70%;
@@ -24,18 +28,28 @@
 .infoContainer {
   z-index: 2;
   position: relative;
-  height: 80px;
   width: 100%;
   margin-top: auto;
-  padding: 0 10px 10px 10px;
- /*  background-color: lightcoral; */
+  padding: 0 10px 20px 10px;
+  /*  background-color: lightcoral; */
+}
+
+.numPok {
+  color: #888;
+  text-align: center;
+}
+
+.namePok {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
 }
 
 .chipsContainer {
   display: flex;
   justify-content: center;
   gap: 5px;
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
 .chip {
@@ -43,9 +57,9 @@
   align-items: center;
   justify-content: center;
   padding: 3px 10px;
-  background-color: red;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 12px;
+  text-transform: capitalize;
 }
 
 @media (max-width: $mobile) {
