@@ -3,20 +3,35 @@
 .detailContainer {
   width: 100%;
   min-width: 300px;
-  height: 80vh;
+  height: 450px;
   display: flex;
   align-items: flex-end;
   position: relative;
-  .imgContainer {
-    position: absolute;
-    top: -45px;
-    height: 100px;
-    & img {
-      width: 100%;
-      display: block;
-      margin: 0 auto;
-    }
+}
+
+.imgsContainer {
+  width: 100%;
+  position: absolute;
+  top: -140px;
+  height: 230px;
+  & img {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
   }
+}
+
+.mySwiper {
+  height: 120%;
+  /*  overflow: visible !important; */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #000 !important;
+  width: 10px !important;
+  transform: scale(0.5) !important;
+  top: 200px !important;
 }
 
 .detailBox {
@@ -28,23 +43,49 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;
 }
 
-.detailInfo{
-    background-color: lightblue;
+.detailInfo {
+  /*  background-color: lightblue; */
+  margin-top: auto;
+  width: 100%;
+  padding: 0 20px 50px 20px;
+  & p:nth-child(1) {
+    color: #999;
+    font-weight: 800;
+    text-align: center;
+  }
+  & p:nth-child(2) {
+    font-weight: 800;
+    text-transform: capitalize;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.chipDetail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 13px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 @media (max-width: $mobile) {
-    .detailContainer {
-        .imgContainer {
-          position: absolute;
-          top: -95px;
-          height: 100px;
-          & img {
-            width: 100%;
-            display: block;
-            margin: 0 auto;
-          }
-        }
+  .detailContainer {
+    .imgContainer {
+      position: absolute;
+      top: -95px;
+      height: 100px;
+      & img {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
       }
+    }
   }
+}
