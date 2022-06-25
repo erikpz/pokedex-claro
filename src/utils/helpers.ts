@@ -1,5 +1,4 @@
 export const getTypeColor = (type: string) => {
-  console.log(type);
   switch (type) {
     case "water":
       return {
@@ -14,7 +13,7 @@ export const getTypeColor = (type: string) => {
     case "grass":
       return {
         bgcolor: "#02c39a",
-        color: "#000",
+        color: "#fff",
       };
     case "dark":
       return {

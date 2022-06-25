@@ -5,11 +5,11 @@
 }
 
 body {
-  background-color: whitesmoke;
+  background-color: #F0F3F9;
 }
 
 .boxShadow {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
 .rootStyle {
@@ -52,10 +52,10 @@ body {
 
 @media (max-width: $mobile) {
   .rootStyle {
-    padding: 0 10px;
+    padding: 0 15px;
   }
   .cardsContainer {
-    gap: 20px;
+    gap: 10px;
     row-gap: 60px;
   }
 }

@@ -4,22 +4,21 @@
   background-color: #fff;
   border-radius: 12px;
   width: 100%;
-  max-width: 220px;
-  height: 180px;
+  max-width: 180px;
+  height: 140px;
   position: relative;
   display: flex;
-}
-
-.cardContainer:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .imgContainer {
   position: absolute;
-  top: -75px;
+  top: -65px;
   height: 100px;
   & img {
-    width: 70%;
+    width: 65%;
     display: block;
     margin: 0 auto;
   }
@@ -35,13 +34,15 @@
 }
 
 .numPok {
-  color: #888;
+  color: #999;
   text-align: center;
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .namePok {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
 }
 
@@ -57,14 +58,15 @@
   align-items: center;
   justify-content: center;
   padding: 3px 10px;
-  border-radius: 5px;
-  font-size: 12px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: capitalize;
 }
 
-@media (max-width: $mobile) {
+@media (max-width: $tablet) {
   .cardContainer {
-    max-width: 180px;
-    height: 150px;
+    max-width: 150px;
+    height: 120px;
   }
 }

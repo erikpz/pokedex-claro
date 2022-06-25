@@ -13,7 +13,7 @@ export class PokemonService {
 
   async getAllPokemons(
     offset: number = 0,
-    limit: number = 15
+    limit: number = 20
   ): Promise<APIResponse> {
     return GenericService.get({
       endpoint: `/pokemon?offset=${

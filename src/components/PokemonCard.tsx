@@ -4,11 +4,15 @@ import { getTypeColor } from "../utils/helpers";
 
 interface IPokemonCardProps {
   pokemon: any;
+  onSelect: (p: any) => void;
 }
 
 export const PokemonCard: FC<IPokemonCardProps> = (props) => {
   return (
-    <div className="cardContainer boxShadow">
+    <div
+      className="cardContainer boxShadow"
+      onClick={() => props.onSelect(props.pokemon)}
+    >
       <div className="imgContainer">
         <img
           alt={props.pokemon.name}

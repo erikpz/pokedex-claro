@@ -23,8 +23,7 @@
   font-size: 16px;
   padding-right: 70px;
   &:focus {
-    outline: none;
-    box-shadow: rgba(213, 14, 14, 0.755) 0px 3px 8px;
+    outline: 2px solid #aaa;
   }
 }
 
