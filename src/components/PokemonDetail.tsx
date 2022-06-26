@@ -48,8 +48,55 @@ export const PokemonDetail: FC<IPokemonDetailProps> = (props) => {
               </span>
             ))}
           </div>
+          <p
+            style={{
+              fontSize: 16,
+              fontWeight: 700,
+              textAlign: "center",
+              marginTop: 20,
+            }}
+          >
+            STATS
+          </p>
+          <div className="statContainer">
+            {props.pokemon.stats.map((stat: any, i: number) => (
+              <StatIndicator
+                key={stat.stat.name}
+                name={stat.stat.name}
+                value={stat.base_stat}
+                ind={i}
+              />
+            ))}
+          </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+const StatIndicator = (props: any) => {
+  const getColor = (ind: number) => {
+    switch (ind) {
+      case 0:
+        return "#e63946";
+      case 1:
+        return "#f77f00";
+      case 2:
+        return "#fcbf49";
+      case 3:
+        return "#48cae4";
+      case 4:
+        return "#06d6a0";
+      case 5:
+        return "#e4c1f9";
+    }
+  };
+  return (
+    <div className="statIndicator">
+      <span style={{ backgroundColor: getColor(props.ind), color: "#fff" }}>
+        {props.name}
+      </span>
+      <span>{props.value}</span>
     </div>
   );
 };

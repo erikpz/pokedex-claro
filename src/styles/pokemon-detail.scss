@@ -3,7 +3,8 @@
 .detailContainer {
   width: 100%;
   min-width: 300px;
-  height: 450px;
+  max-width: 350px;
+  height: 540px;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -59,7 +60,7 @@
   & p:nth-child(2) {
     font-weight: 800;
     text-transform: capitalize;
-    font-size: 20px;
+    font-size: 35px;
     text-align: center;
   }
 }
@@ -73,6 +74,43 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: capitalize;
+}
+
+.statContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.statIndicator {
+  width: 60px;
+  border-radius: 23px;
+  background-color: #f0f3f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
+
+  & span:first-of-type {
+    font-size: 12px;
+    text-align: center;
+    font-weight: 700;
+    width: 55px;
+    height: 55px;
+    display: inline-grid;
+    place-content: center;
+    border-radius: 50%;
+    background-color: aquamarine;
+    text-transform: capitalize;
+  }
+  & span:last-of-type {
+    font-weight: 700;
+    display: inline-flex;
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: $mobile) {

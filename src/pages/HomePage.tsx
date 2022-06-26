@@ -4,6 +4,7 @@ import { HomeLayout } from "../components/HomeLayout";
 import { PokemonCard } from "../components/PokemonCard";
 import { PokemonDetail } from "../components/PokemonDetail";
 import { SearchBar } from "../components/SearchBar";
+import { Spinner } from "../components/Spinner";
 import { Transition } from "../components/Transition";
 import { PokemonService } from "../services/PokemonService";
 
@@ -11,6 +12,7 @@ export const HomePage: FC = () => {
   const [pokemons, setpokemons] = useState<any>([]);
   const [openPokemonDetail, setopenPokemonDetail] = useState<boolean>(false);
   const [pokemonSelected, setpokemonSelected] = useState<any>();
+  const [fetchingPoks, setfetchingPoks] = useState(false);
 
   const onSelectPokemon = (p: any) => {
     setopenPokemonDetail(true);
@@ -21,6 +23,7 @@ export const HomePage: FC = () => {
     setopenPokemonDetail(false);
   };
   const getPokemons = async () => {
+    setfetchingPoks(true);
     try {
       const pokemonService = PokemonService.getInstance();
       const response = await pokemonService.getAllPokemons();
@@ -32,6 +35,8 @@ export const HomePage: FC = () => {
       setpokemons(pokems);
     } catch (error) {
       console.log(error);
+    } finally {
+      setfetchingPoks(false);
     }
   };
   useEffect(() => {
@@ -41,16 +46,21 @@ export const HomePage: FC = () => {
   return (
     <HomeLayout>
       <SearchBar />
-      <div className="cardsContainer">
-        {pokemons.length > 0 &&
-          pokemons.map((pokem: any) => (
-            <PokemonCard
-              pokemon={pokem}
-              key={pokem.id}
-              onSelect={onSelectPokemon}
-            />
-          ))}
-      </div>
+      {fetchingPoks ? (
+        <Spinner />
+      ) : (
+        <div className="cardsContainer">
+          {pokemons.length > 0 &&
+            pokemons.map((pokem: any) => (
+              <PokemonCard
+                pokemon={pokem}
+                key={pokem.id}
+                onSelect={onSelectPokemon}
+              />
+            ))}
+        </div>
+      )}
+
       {pokemonSelected && (
         <Dialog
           maxWidth="md"
