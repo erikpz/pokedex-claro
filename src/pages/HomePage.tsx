@@ -1,4 +1,4 @@
-import { Dialog } from "@mui/material";
+import { Dialog, Pagination } from "@mui/material";
 import React, { FC, useEffect, useState } from "react";
 import { HomeLayout } from "../components/HomeLayout";
 import { PokemonCard } from "../components/PokemonCard";
@@ -13,6 +13,8 @@ export const HomePage: FC = () => {
   const [openPokemonDetail, setopenPokemonDetail] = useState<boolean>(false);
   const [pokemonSelected, setpokemonSelected] = useState<any>();
   const [fetchingPoks, setfetchingPoks] = useState(false);
+  const [countPoks, setcountPoks] = useState(0);
+  const [page, setpage] = useState(0);
 
   const onSelectPokemon = (p: any) => {
     setopenPokemonDetail(true);
@@ -26,7 +28,8 @@ export const HomePage: FC = () => {
     setfetchingPoks(true);
     try {
       const pokemonService = PokemonService.getInstance();
-      const response = await pokemonService.getAllPokemons();
+      const response = await pokemonService.getAllPokemons(page);
+      setcountPoks(response.data.count);
       const requestsPokemons = response.data.results.map((poke: any) =>
         pokemonService.getPokemonByName(poke.name)
       );
@@ -41,7 +44,7 @@ export const HomePage: FC = () => {
   };
   useEffect(() => {
     getPokemons();
-  }, []);
+  }, [page]);
   /* console.log("pokemons", pokemons); */
   return (
     <HomeLayout>
@@ -49,16 +52,24 @@ export const HomePage: FC = () => {
       {fetchingPoks ? (
         <Spinner />
       ) : (
-        <div className="cardsContainer">
-          {pokemons.length > 0 &&
-            pokemons.map((pokem: any) => (
-              <PokemonCard
-                pokemon={pokem}
-                key={pokem.id}
-                onSelect={onSelectPokemon}
-              />
-            ))}
-        </div>
+        <>
+          <div className="cardsContainer">
+            {pokemons.length > 0 &&
+              pokemons.map((pokem: any) => (
+                <PokemonCard
+                  pokemon={pokem}
+                  key={pokem.id}
+                  onSelect={onSelectPokemon}
+                />
+              ))}
+          </div>
+          <Pagination
+            count={Math.ceil(countPoks / 20)}
+            page={page + 1}
+            onChange={(e: any, p: number) => setpage(p - 1)}
+            sx={{ my: 5, "& .MuiPagination-ul": { justifyContent: "center" } }}
+          />
+        </>
       )}
 
       {pokemonSelected && (
