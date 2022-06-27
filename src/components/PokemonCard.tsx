@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import "../styles/pokemon-card.scss";
-import { getTypeColor, getTypeTranslate } from "../utils/helpers";
 
 interface IPokemonCardProps {
   pokemon: any;
