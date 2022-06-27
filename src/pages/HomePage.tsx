@@ -190,6 +190,7 @@ export const HomePage: FC = () => {
             <PokemonDetail
               pokemon={pokemonSelected}
               onClose={handleCloseModal}
+              getPokemonType={getPokemonType}
             />
           </Dialog>
         )}

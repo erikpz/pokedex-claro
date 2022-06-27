@@ -21,7 +21,6 @@ const Select = styled(Sl)(({ theme }) => ({
     border: "none",
   },
   "& .MuiSelect-select": {
-    minHeight: 30,
     padding: "6px 16px",
   },
 }));
@@ -88,42 +87,45 @@ export const SearchBar: FC<ISearchBarProps> = (props) => {
       </div>
       <div className="btnContainer">
         {types.length > 0 && (
-          <Controller
-            name="searchType"
-            defaultValue=""
-            control={control}
-            render={({ field: { ref, onChange, ...restFields } }: any) => (
-              <Select
-                inputRef={ref}
-                {...restFields}
-                onChange={(e) => {
-                  onChange(e);
-                  handleSelect(e);
-                }}
-                className="boxShadow"
-              >
-                {types.map((opt: string, i: number) => (
-                  <MenuItem key={opt + i} value={opt}>
-                    <SelectOption
-                      primary={getTypeTranslate(opt)}
-                      sx={{ fontSize: 14 }}
-                    />
-                  </MenuItem>
-                ))}
-              </Select>
-            )}
-          />
+          <>
+            <Controller
+              name="searchType"
+              defaultValue=""
+              control={control}
+              render={({ field: { ref, onChange, ...restFields } }: any) => (
+                <Select
+                  inputRef={ref}
+                  {...restFields}
+                  onChange={(e) => {
+                    onChange(e);
+                    handleSelect(e);
+                  }}
+                  className="boxShadow"
+                >
+                  {types.map((opt: string, i: number) => (
+                    <MenuItem key={opt + i} value={opt}>
+                      <SelectOption
+                        primary={getTypeTranslate(opt)}
+                        sx={{ fontSize: 14 }}
+                      />
+                    </MenuItem>
+                  ))}
+                </Select>
+              )}
+            />
+            <Button
+              variant="contained"
+              onClick={props.handleClearInput}
+              sx={{
+                borderRadius: "12px",
+                textTransform: "capitalize",
+                padding: "4px 16px",
+              }}
+            >
+              Limpiar
+            </Button>
+          </>
         )}
-        <Button
-          variant="contained"
-          onClick={props.handleClearInput}
-          sx={{
-            borderRadius: "12px",
-            textTransform: "capitalize",
-          }}
-        >
-          Limpiar
-        </Button>
       </div>
     </div>
   );

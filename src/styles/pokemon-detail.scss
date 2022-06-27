@@ -74,6 +74,9 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: capitalize;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .statContainer {

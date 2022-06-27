@@ -5,12 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+import { useFormContext } from "react-hook-form";
 interface IPokemonDetailProps {
   pokemon: any;
   onClose: () => void;
+  getPokemonType: (type: string) => void;
 }
 
 export const PokemonDetail: FC<IPokemonDetailProps> = (props) => {
+  const { setValue } = useFormContext();
   console.log(props);
   return (
     <div className="detailContainer">
@@ -42,6 +45,11 @@ export const PokemonDetail: FC<IPokemonDetailProps> = (props) => {
                 style={{
                   color: getTypeColor(type.type.name).color,
                   backgroundColor: getTypeColor(type.type.name).bgcolor,
+                }}
+                onClick={() => {
+                  setValue("searchType", type.type.name);
+                  props.getPokemonType(type.type.name);
+                  props.onClose();
                 }}
               >
                 {getTypeTranslate(type.type.name)}
