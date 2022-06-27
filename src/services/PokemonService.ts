@@ -33,4 +33,16 @@ export class PokemonService {
       endpoint: `/pokemon/${id}`,
     });
   }
+
+  async getPokemonTypes(): Promise<APIResponse> {
+    return GenericService.get({
+      endpoint: `/type`,
+    });
+  }
+
+  async getPokemonType(type: string): Promise<APIResponse> {
+    return GenericService.get({
+      endpoint: `/type/${type}`,
+    });
+  }
 }

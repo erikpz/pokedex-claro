@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "../styles/pokemon-card.scss";
-import { getTypeColor } from "../utils/helpers";
+import { getTypeColor, getTypeTranslate } from "../utils/helpers";
 
 interface IPokemonCardProps {
   pokemon: any;
@@ -34,7 +34,7 @@ export const PokemonCard: FC<IPokemonCardProps> = (props) => {
                 backgroundColor: getTypeColor(type.type.name).bgcolor,
               }}
             >
-              {type.type.name}
+              {getTypeTranslate(type.type.name)}
             </span>
           ))}
         </div>

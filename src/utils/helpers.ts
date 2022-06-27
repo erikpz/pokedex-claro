@@ -47,7 +47,7 @@ export const getTypeColor = (type: string) => {
       };
     case "flying":
       return {
-        bgcolor: "#457b9d",
+        bgcolor: "#a2d2ff",
         color: "#fff",
       };
     case "ghost":
@@ -67,7 +67,7 @@ export const getTypeColor = (type: string) => {
       };
     case "normal":
       return {
-        bgcolor: "#888",
+        bgcolor: "#83c5be",
         color: "#fff",
       };
     case "poison":
@@ -75,7 +75,7 @@ export const getTypeColor = (type: string) => {
         bgcolor: "#7209b7",
         color: "#fff",
       };
-    case "psycho":
+    case "psychic":
       return {
         bgcolor: "#e0b1cb",
         color: "#fff",
@@ -90,10 +90,60 @@ export const getTypeColor = (type: string) => {
         bgcolor: "#ced4da",
         color: "#000",
       };
+    case "shadow":
+      return {
+        bgcolor: "#073b4c",
+        color: "#fff",
+      };
     default:
       return {
         bgcolor: "#6c757d",
         color: "#fff",
       };
+  }
+};
+
+export const getTypeTranslate = (type: string) => {
+  switch (type) {
+    case "water":
+      return "Agua";
+    case "bug":
+      return "Insecto";
+    case "grass":
+      return "Planta";
+    case "dark":
+      return "Oscuro";
+    case "dragon":
+      return "Dragón";
+    case "electric":
+      return "Eléctrico";
+    case "fairy":
+      return "Hada";
+    case "fighting":
+      return "Lucha";
+    case "fire":
+      return "Fuego";
+    case "flying":
+      return "Aire";
+    case "ghost":
+      return "Fantasma";
+    case "ground":
+      return "Tierra";
+    case "ice":
+      return "Hielo";
+    case "normal":
+      return "Normal";
+    case "poison":
+      return "Veneno";
+    case "psychic":
+      return "Psiquico";
+    case "rock":
+      return "Roca";
+    case "steel":
+      return "Acero";
+    case "shadow":
+      return "Sombra";
+    default:
+      return "Desconocido";
   }
 };

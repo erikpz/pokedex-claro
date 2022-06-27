@@ -27,6 +27,13 @@
   }
 }
 
+.btnContainer {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media (max-width: $mobile) {
   .searchContainer {
     & img {

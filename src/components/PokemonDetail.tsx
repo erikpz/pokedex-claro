@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "../styles/pokemon-detail.scss";
-import { getTypeColor } from "../utils/helpers";
+import { getTypeColor, getTypeTranslate } from "../utils/helpers";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -44,7 +44,7 @@ export const PokemonDetail: FC<IPokemonDetailProps> = (props) => {
                   backgroundColor: getTypeColor(type.type.name).bgcolor,
                 }}
               >
-                {type.type.name}
+                {getTypeTranslate(type.type.name)}
               </span>
             ))}
           </div>
@@ -53,7 +53,7 @@ export const PokemonDetail: FC<IPokemonDetailProps> = (props) => {
               fontSize: 16,
               fontWeight: 700,
               textAlign: "center",
-              marginTop: 20,
+              marginTop: 30,
             }}
           >
             STATS
