@@ -20,6 +20,10 @@ const Select = styled(Sl)(({ theme }) => ({
   "&:hover": {
     border: "none",
   },
+  "& .MuiSelect-select": {
+    minHeight: 30,
+    padding: "6px 16px",
+  },
 }));
 const SelectOption = styled(ListItemText)(({ theme }) => ({
   margin: "2px 0",
@@ -115,10 +119,10 @@ export const SearchBar: FC<ISearchBarProps> = (props) => {
           onClick={props.handleClearInput}
           sx={{
             borderRadius: "12px",
-            textTransform:"capitalize"
+            textTransform: "capitalize",
           }}
         >
-          Limpiar búsqueda
+          Limpiar
         </Button>
       </div>
     </div>

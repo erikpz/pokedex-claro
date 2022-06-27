@@ -98,10 +98,15 @@ export const HomePage: FC = () => {
   };
 
   const handleClearInput = () => {
-    formMethods.setValue("search", "");
-    formMethods.setValue("searchType", "");
-    setpage(0);
-    getPokemons();
+    if (
+      formMethods.getValues("search") ||
+      formMethods.getValues("searchType")
+    ) {
+      formMethods.setValue("search", "");
+      formMethods.setValue("searchType", "");
+      setpage(0);
+      getPokemons();
+    }
   };
 
   const handlePagination = (e: any, p: number) => {
