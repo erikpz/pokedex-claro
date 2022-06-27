@@ -20,11 +20,11 @@ export const PokemonCard: FC<IPokemonCardProps> = (props) => {
         />
       </div>
       <div className="infoContainer">
-        <p className="numPok"># {props.pokemon.id}</p>
+       {/*  <p className="numPok"># {props.pokemon.id}</p> */}
         <p className="namePok" style={{ textTransform: "capitalize" }}>
           {props.pokemon.name}
         </p>
-        <div className="chipsContainer">
+        {/* <div className="chipsContainer">
           {props.pokemon.types.map((type: any) => (
             <span
               className="chip"
@@ -37,7 +37,7 @@ export const PokemonCard: FC<IPokemonCardProps> = (props) => {
               {getTypeTranslate(type.type.name)}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

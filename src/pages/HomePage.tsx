@@ -147,14 +147,14 @@ export const HomePage: FC = () => {
         ) : (
           <>
             <div className="cardsContainer">
-              {pokemons.length > 0 &&
+              {pokemons.length > 0 ?
                 pokemons.map((pokem: any) => (
                   <PokemonCard
                     pokemon={pokem}
                     key={pokem.id}
                     onSelect={onSelectPokemon}
                   />
-                ))}
+                )): <p>No se encontraron resultados</p>}
             </div>
             {countPoks > 0 && (
               <Pagination

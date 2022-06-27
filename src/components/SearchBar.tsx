@@ -8,6 +8,8 @@ import {
   ListItemText,
   MenuItem,
   Button,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { PokemonService } from "../services/PokemonService";
 import { getTypeTranslate } from "../utils/helpers";
@@ -17,11 +19,8 @@ const Select = styled(Sl)(({ theme }) => ({
   maxWidth: 200,
   backgroundColor: "#fff",
   borderRadius: 12,
-  "&:hover": {
-    border: "none",
-  },
   "& .MuiSelect-select": {
-    padding: "6px 16px",
+    padding: "15px 16px",
   },
 }));
 const SelectOption = styled(ListItemText)(({ theme }) => ({
@@ -75,7 +74,7 @@ export const SearchBar: FC<ISearchBarProps> = (props) => {
         <input
           type="text"
           className="searchBar boxShadow"
-          placeholder="Busca un pokemón"
+          placeholder="Busca un pokémon"
           {...register("search", { required: true })}
           onKeyDown={(e: any) => {
             if (e.key === "Enter" && e.shiftKey === false) {
@@ -93,24 +92,31 @@ export const SearchBar: FC<ISearchBarProps> = (props) => {
               defaultValue=""
               control={control}
               render={({ field: { ref, onChange, ...restFields } }: any) => (
-                <Select
-                  inputRef={ref}
-                  {...restFields}
-                  onChange={(e) => {
-                    onChange(e);
-                    handleSelect(e);
-                  }}
-                  className="boxShadow"
-                >
-                  {types.map((opt: string, i: number) => (
-                    <MenuItem key={opt + i} value={opt}>
-                      <SelectOption
-                        primary={getTypeTranslate(opt)}
-                        sx={{ fontSize: 14 }}
-                      />
+                <FormControl sx={{ width: 300 }}>
+                  <InputLabel sx={{ fontSize: 15 }}>Tipo</InputLabel>
+                  <Select
+                    inputRef={ref}
+                    {...restFields}
+                    onChange={(e) => {
+                      onChange(e);
+                      handleSelect(e);
+                    }}
+                    className="boxShadow"
+                    label="Tipo"
+                  >
+                    <MenuItem disabled value="">
+                      <SelectOption primary="Tipo" sx={{ fontSize: 14 }} />
                     </MenuItem>
-                  ))}
-                </Select>
+                    {types.map((opt: string, i: number) => (
+                      <MenuItem key={opt + i} value={opt}>
+                        <SelectOption
+                          primary={getTypeTranslate(opt)}
+                          sx={{ fontSize: 14 }}
+                        />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               )}
             />
             <Button
@@ -119,7 +125,7 @@ export const SearchBar: FC<ISearchBarProps> = (props) => {
               sx={{
                 borderRadius: "12px",
                 textTransform: "capitalize",
-                padding: "4px 16px",
+                padding: "15px 16px",
               }}
             >
               Limpiar
